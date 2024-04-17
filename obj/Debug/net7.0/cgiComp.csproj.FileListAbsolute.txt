@@ -1,0 +1,14 @@
+C:\Users\Sgsch\documents\coding\cgiComp\bin\Debug\net7.0\cgiComp.exe
+C:\Users\Sgsch\documents\coding\cgiComp\bin\Debug\net7.0\cgiComp.deps.json
+C:\Users\Sgsch\documents\coding\cgiComp\bin\Debug\net7.0\cgiComp.runtimeconfig.json
+C:\Users\Sgsch\documents\coding\cgiComp\bin\Debug\net7.0\cgiComp.dll
+C:\Users\Sgsch\documents\coding\cgiComp\bin\Debug\net7.0\cgiComp.pdb
+C:\Users\Sgsch\documents\coding\cgiComp\obj\Debug\net7.0\cgiComp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sgsch\documents\coding\cgiComp\obj\Debug\net7.0\cgiComp.AssemblyInfoInputs.cache
+C:\Users\Sgsch\documents\coding\cgiComp\obj\Debug\net7.0\cgiComp.AssemblyInfo.cs
+C:\Users\Sgsch\documents\coding\cgiComp\obj\Debug\net7.0\cgiComp.csproj.CoreCompileInputs.cache
+C:\Users\Sgsch\documents\coding\cgiComp\obj\Debug\net7.0\cgiComp.dll
+C:\Users\Sgsch\documents\coding\cgiComp\obj\Debug\net7.0\refint\cgiComp.dll
+C:\Users\Sgsch\documents\coding\cgiComp\obj\Debug\net7.0\cgiComp.pdb
+C:\Users\Sgsch\documents\coding\cgiComp\obj\Debug\net7.0\cgiComp.genruntimeconfig.cache
+C:\Users\Sgsch\documents\coding\cgiComp\obj\Debug\net7.0\ref\cgiComp.dll
