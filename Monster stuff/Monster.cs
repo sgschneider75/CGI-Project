@@ -10,15 +10,21 @@ namespace cgiComp
 
         public string Behavior { get; set; }
 
+        public int speed;
+
+        public int defense;
+
         public bool isCharged {get; set;}
 
         public bool isDead {get; set;}
 
-        public Monster(string Name, int Health, int Damage, string Behavior){
+        public Monster(string Name, int Health, int Damage, string Behavior, int speed, int defense){
             this.Name = Name;
             this.Health = Health;  
             this.Damage = Damage;
             this.Behavior = Behavior;
+            this.speed = speed;
+            this.defense = defense;
             this.isCharged = false;
             this.isDead = false;
         }

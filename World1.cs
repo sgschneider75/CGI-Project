@@ -22,10 +22,28 @@ namespace cgiComp
             if(roomChoice == 4){
                 MysteryRoom();
             } else {
-                BattleEnemy(roomNumber);
+                BattleRandomMonster(roomNumber);
             }
                 
             
+        }
+
+        public void EnterEliteSplitRoom(int enemyNumber, int eliteNumber){
+            int randomNum = Functions.GetRandomNum(1, 4);
+
+            if(randomNum == 4){
+                BattleElite(eliteNumber);
+            } else {
+                BattleMonster(enemyNumber);
+            }
+        }
+
+        public void EnterEliteRoom(int eliteNumber){
+
+        }
+
+        public void EnterBossRoom(int bossNumber){
+
         }
 
 
@@ -42,7 +60,7 @@ namespace cgiComp
 
         }
 
-        public void BattleEnemy(int roomNumber){
+        public void BattleRandomMonster(int roomNumber){
             roomNumber = roomNumber - 1;
             int x = 1 + (3*roomNumber);
             int y = 3 + (3*roomNumber);
@@ -50,6 +68,21 @@ namespace cgiComp
             while(player.isDead == false && monster.isDead == false){
                 battleHandler.BattleRound(player, monster);
             }
+        }
+
+        public void BattleMonster(int enemyNumber){
+            Monster monster = monsterList[enemyNumber - 1];
+            while(player.isDead == false && monster.isDead == false){
+                battleHandler.BattleRound(player, monster);
+            }
+        }
+
+        public void BattleElite(){
+
+        }
+
+        public void BattleBoss(){
+            
         }
     }
 }
