@@ -7,8 +7,8 @@ namespace cgiComp
             bool answerSelected = false;
             
             while(answerSelected == false){
-                System.Console.WriteLine("player's health:" + player.health);
-                System.Console.WriteLine("monster's health:" + monster.Health);
+                System.Console.WriteLine("player's health:" + player.health + "/" + player.maxHealth);
+                System.Console.WriteLine("monster's health:" + monster.Health + "/" + monster.MaxHealth);
 
                 for(int i = 0; i < menuOptions.Length; i++){
                     if(i+1 == selected){

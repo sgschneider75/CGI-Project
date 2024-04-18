@@ -6,6 +6,8 @@ namespace cgiComp
 
         public int health {get; set;}
 
+        public int maxHealth {get; set;}
+
         public int damage {get; set;}
 
         public int power {get; set;}
@@ -16,22 +18,23 @@ namespace cgiComp
 
         public bool isDead {get; set;}
 
-        public Inventory inventory {get; set;}
-
         public bool isCharged {get; set;}
+
+        public string resistance {get; set;}
 
         // Charge Status, increases damage, but dissapears with an attack
 
-        public Player (string username, int health, int damage){
+        public Player (string username, int maxHealth, int damage){
             this.username = username;
-            this.health = health;
+            this.maxHealth = maxHealth;
+            this.health = maxHealth;
             this.damage = damage;
             this.power = 0;
             this.speed = 0;
             this.defense = 0;
             this.isDead = false;
-            this.inventory = new Inventory();
             this.isCharged = false;
+            this.resistance = "none";
         }
 
         public void DealDamage(Monster monster, int resistance){
@@ -64,7 +67,7 @@ namespace cgiComp
                 totalDamage = 0;
             }
            
-            monster.Health = monster.Health - (totalDamage / resistance);
+            monster.Health -= (totalDamage / resistance);
 
             System.Console.WriteLine($"You struck and dealt {totalDamage / resistance} damage");
 
@@ -76,6 +79,7 @@ namespace cgiComp
 
         public void ChargeUp(){
             isCharged = true;
+            System.Console.WriteLine("You are charged up!");
         }
 
 

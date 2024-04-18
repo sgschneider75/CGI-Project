@@ -17,35 +17,68 @@ namespace cgiComp
             }
         }
 
-        public void GetItemBonus(string itemBonus){
+        public void AddItemBonus(string itemBonus){
             string[] bonusInfo = itemBonus.Split('/');
+            int x = 0;
+            int y = 1;
+            int i = 0;
+            while(i < bonusInfo.Length && bonusInfo[x] != "r"){
+                if(bonusInfo[x] == "p"){
+                    player.power += int.Parse(bonusInfo[y]);
+                } else if (bonusInfo[x] == "s"){
+                    player.speed += int.Parse(bonusInfo[y]);
+                } else if (bonusInfo[x] == "d"){
+                    player.defense += int.Parse(bonusInfo[y]);
+                } else if (bonusInfo[x] == "a"){
+                    player.power += int.Parse(bonusInfo[y])*5;
+                    player.speed += int.Parse(bonusInfo[y]);
+                    player.defense += int.Parse(bonusInfo[y]);
+                    player.maxHealth += int.Parse(bonusInfo[y])*5;
+                    player.health += int.Parse(bonusInfo[y])*5;
+                } else if (bonusInfo[x] == "mh"){
+                    player.health += int.Parse(bonusInfo[y]);
+                    player.maxHealth += int.Parse(bonusInfo[y]);
+                }
+            }
 
-            if(bonusInfo[0] == "p"){
-                player.power += int.Parse(bonusInfo[1]);
-            } else if (bonusInfo[0] == "s"){
-                player.speed += int.Parse(bonusInfo[1]);
-            } else if (bonusInfo[0] == "d"){
-                player.defense += int.Parse(bonusInfo[1]);
-            } else if (bonusInfo[0] == "a"){
-                player.power += int.Parse(bonusInfo[1]);
-                player.speed += int.Parse(bonusInfo[1]);
-                player.defense += int.Parse(bonusInfo[1]);
+            if(bonusInfo[0] == "r"){
+                if(bonusInfo[1] == "c"){
+                    player.resistance = "cold";
+                } else if (bonusInfo[1] == "f"){
+                    player.resistance = "fire";
+                } else if (bonusInfo[1] == "e"){
+                    player.resistance = "earth";
+                } else if(bonusInfo[1] == "w"){
+                    player.resistance = "wind";
+                } else {
+                    player.resistance = "dark";
+                }
             }
         }
 
         public void RemoveItemBonus(string itemBonus){
             string[] bonusInfo = itemBonus.Split('/');
+            int x = 0;
+            int y = 1;
+            int i = 0;
+            while(i < bonusInfo.Length && bonusInfo[x] != "r"){
+                if(bonusInfo[x] == "p"){
+                    player.power -= int.Parse(bonusInfo[y]);
+                } else if (bonusInfo[x] == "s"){
+                    player.speed -= int.Parse(bonusInfo[y]);
+                } else if (bonusInfo[x] == "d"){
+                    player.defense -= int.Parse(bonusInfo[y]);
+                } else if (bonusInfo[x] == "a"){
+                    player.power -= int.Parse(bonusInfo[y]);
+                    player.speed -= int.Parse(bonusInfo[y]);
+                    player.defense -= int.Parse(bonusInfo[y]);
+                } else if (bonusInfo[x] == "mh"){
+                    player.maxHealth -= int.Parse(bonusInfo[y]);
+                }
+            }
 
-            if(bonusInfo[0] == "p"){
-                player.power -= int.Parse(bonusInfo[1]);
-            } else if (bonusInfo[0] == "s"){
-                player.speed -= int.Parse(bonusInfo[1]);
-            } else if (bonusInfo[0] == "d"){
-                player.defense -= int.Parse(bonusInfo[1]);
-            } else if (bonusInfo[0] == "a"){
-                player.power -= int.Parse(bonusInfo[1]);
-                player.speed -= int.Parse(bonusInfo[1]);
-                player.defense -= int.Parse(bonusInfo[1]);
+            if(bonusInfo[0] == "r"){
+                player.resistance = "none";
             }
         }
     }

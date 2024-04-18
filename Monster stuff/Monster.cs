@@ -6,6 +6,8 @@ namespace cgiComp
 
         public int Health { get; set; }
 
+        public int MaxHealth { get; set; }
+
         public int Damage { get; set; }
 
         public string Behavior { get; set; }
@@ -18,9 +20,10 @@ namespace cgiComp
 
         public bool isDead {get; set;}
 
-        public Monster(string Name, int Health, int Damage, string Behavior, int speed, int defense){
+        public Monster(string Name, int MaxHealth, int Damage, string Behavior, int speed, int defense){
             this.Name = Name;
-            this.Health = Health;  
+            this.MaxHealth = MaxHealth;
+            this.Health = MaxHealth;  
             this.Damage = Damage;
             this.Behavior = Behavior;
             this.speed = speed;
@@ -48,7 +51,7 @@ namespace cgiComp
                 isCharged = false;
             }
 
-            player.health = player.health - (totalDamage / resistance);
+            player.health -= (totalDamage / resistance);
 
             System.Console.WriteLine($"The monster lashed out and dealt {totalDamage / resistance} damage");
 
@@ -60,6 +63,7 @@ namespace cgiComp
 
         public void ChargeUp(){
             isCharged = true;
+            System.Console.WriteLine($"the {Name} is charged up");
         }
     }
 }

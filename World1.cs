@@ -39,11 +39,11 @@ namespace cgiComp
         }
 
         public void EnterEliteRoom(int eliteNumber){
-
+            BattleElite(eliteNumber);
         }
 
         public void EnterBossRoom(int bossNumber){
-
+            BattleBoss(bossNumber);
         }
 
 
@@ -77,11 +77,11 @@ namespace cgiComp
             }
         }
 
-        public void BattleElite(){
+        public void BattleElite(int eliteNumber){
 
         }
 
-        public void BattleBoss(){
+        public void BattleBoss(int bossNumber){
             
         }
     }
