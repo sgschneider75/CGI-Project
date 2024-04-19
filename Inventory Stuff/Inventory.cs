@@ -18,21 +18,9 @@ namespace cgiComp
         private Blessing blessing{ get; set; }
 
         private Potion[] potions { get; set; }
-
-        // Item Lists
-
-        private static Weapon[] weaponList = InventoryHandler.GetWeaponList();
-
-        private static Blessing[] blessingList = InventoryHandler.GetBlessingList();
-        private static Amulet[] amuletList = InventoryHandler.GetAmuletList();
-
-        private static Ring[] ringList = InventoryHandler.GetRingList();
-
-        private static Trinket[] trinketList = InventoryHandler.GetTrinketList();
-
-        public Inventory(PlayerHandler playerHandler){
+        public Inventory(){
             this.coins = 0;
-            this.weapon = new Weapon("stick", 2, "none/none");
+            this.weapon = new Weapon("none", 0, "none/none");
             this.trinket = new Trinket("none", "none/none");
             this.amulet = new Amulet("none", "none/none");
             this.ring = new Ring("none", "none/none");

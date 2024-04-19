@@ -14,15 +14,9 @@ namespace cgiComp
             this.bonus = bonus;
         }
 
-        // public void ApplyWeaponBonus(Player player){
-        //     player.damage = player.damage + damage;
-        //     playerHandler.AddItemBonus(bonus);
-            
-        // }
-
-        // public void RemoveWeaponBonus(Player player){
-        //     player.damage = player.damage - damage;
-        //     playerHandler.RemoveItemBonus(bonus);
-        // }
+        public void WriteStats(){
+            System.Console.WriteLine($"The {name}  Damage: {damage}  ");
+            InventoryHandler.WriteBonus(bonus);
+        }
     }
 }

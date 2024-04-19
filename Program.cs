@@ -2,20 +2,19 @@
 using cgiComp;
 using cgiComp.Battle_Stuff;
 
+PlayerHandler playerHandler = new PlayerHandler();
 
-Player player = PlayerCreator.CreatePlayer();
+Monster[] emptyMonArray = new Monster[24];
 
-Monster[] emptyArray = new Monster[24];
+Elite[] emptyEliteArray = new Elite[9];
 
-MonsterFileHandler fileHandler= new MonsterFileHandler(emptyArray);
+MonsterFileHandler monsterFileHandler= new MonsterFileHandler(emptyMonArray);
 
-World1 world1 = new World1(fileHandler.monsterList, player);
+EliteFileHandler eliteFileHandler = new EliteFileHandler (emptyEliteArray);
 
-world1.TravelWorld1();
+Worlds worlds = new Worlds(monsterFileHandler.monsterList, eliteFileHandler.eliteList, playerHandler);
 
-
-
-System.Console.WriteLine(player.health);
+worlds.TravelWorld1();
 
 
 // StreamReader sr = new StreamReader("Goblin");

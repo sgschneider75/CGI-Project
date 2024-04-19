@@ -13,5 +13,7 @@ namespace cgiComp
             this.bonus = bonus;
             this.potionNumber = 0;
         }
+
+        
     }
 }

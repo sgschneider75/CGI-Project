@@ -10,5 +10,10 @@ namespace cgiComp
             this.name = name;
             this.bonus = bonus;
         }
+
+        public void WriteStats(){
+            System.Console.WriteLine($"The {name}  ");
+            InventoryHandler.WriteBonus(bonus);
+        }
     }
 }

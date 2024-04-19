@@ -2,22 +2,102 @@ namespace cgiComp
 {
     public class PlayerHandler
     {
-        Player player;
-        public PlayerHandler(Player player){
-            this.player = player;
+        public Player player { get; set; }
+        public PlayerHandler(){
+            this.player = PlayerCreator.CreatePlayer();
         }
 
-        public void takeDamage (int damage){
-            player.health = player.health - damage;
-            if(player.health < 0){
-                System.Console.WriteLine($"You have taken {damage} damage and died. Game Over!");
-                player.isDead = true;
+        public void DealDamage(Monster monster, int resistance){
+            double damageMultiplier;
+
+            int playerRoll = Functions.Roll20();
+
+            System.Console.WriteLine($"You rolled a {playerRoll}");
+
+            if(playerRoll == 1){
+                damageMultiplier = 0;
+            } else if (playerRoll <= 6){
+                damageMultiplier = 0.5;
+            } else if (playerRoll <= 14){
+                damageMultiplier = 1;
+            } else if (playerRoll <= 19){
+                damageMultiplier = 1.5;
             } else {
-                System.Console.WriteLine($"You have taken {damage} damage");
+                damageMultiplier = 2;
+            }
+
+            double damageCalc = player.damage*damageMultiplier;
+            int damageInt = Convert.ToInt32(damageCalc);
+            int totalDamage = damageInt + player.power;
+
+            if(player.isCharged == true){
+                totalDamage = totalDamage*2;
+                player.isCharged = false;
+            }
+
+            if(playerRoll == 0){
+                totalDamage = 0;
+            }
+           
+            monster.Health -= (totalDamage / resistance);
+
+            System.Console.WriteLine($"You struck and dealt {totalDamage / resistance} damage");
+
+            if(monster.Health <= 0){
+                monster.isDead = true;
+                System.Console.WriteLine("You killed the monster");
             }
         }
 
-        public void AddItemBonus(string itemBonus){
+        public void DealDamage(Elite monster, int resistance){
+            double damageMultiplier;
+
+            int playerRoll = Functions.Roll20();
+
+            System.Console.WriteLine($"You rolled a {playerRoll}");
+
+            if(playerRoll == 1){
+                damageMultiplier = 0;
+            } else if (playerRoll <= 6){
+                damageMultiplier = 0.5;
+            } else if (playerRoll <= 14){
+                damageMultiplier = 1;
+            } else if (playerRoll <= 19){
+                damageMultiplier = 1.5;
+            } else {
+                damageMultiplier = 2;
+            }
+
+            double damageCalc = player.damage*damageMultiplier;
+            int damageInt = Convert.ToInt32(damageCalc);
+            int totalDamage = damageInt + player.power;
+
+            if(player.isCharged == true){
+                totalDamage = totalDamage*2;
+                player.isCharged = false;
+            }
+
+            if(playerRoll == 0){
+                totalDamage = 0;
+            }
+           
+            monster.Health -= (totalDamage / resistance);
+
+            System.Console.WriteLine($"You struck and dealt {totalDamage / resistance} damage");
+
+            if(monster.Health <= 0){
+                monster.isDead = true;
+                System.Console.WriteLine("You killed the monster");
+            }
+        }
+
+        public void ChargeUp(){
+            player.isCharged = true;
+            System.Console.WriteLine("You are charged up!");
+        }
+
+
+        public void ApplyItemBonus(string itemBonus){
             string[] bonusInfo = itemBonus.Split('/');
             int x = 0;
             int y = 1;
@@ -43,7 +123,7 @@ namespace cgiComp
 
             if(bonusInfo[0] == "r"){
                 if(bonusInfo[1] == "c"){
-                    player.resistance = "cold";
+                    player.resistance = "water";
                 } else if (bonusInfo[1] == "f"){
                     player.resistance = "fire";
                 } else if (bonusInfo[1] == "e"){
@@ -80,6 +160,17 @@ namespace cgiComp
             if(bonusInfo[0] == "r"){
                 player.resistance = "none";
             }
+        }
+
+        public void ApplyWeaponBonus(Weapon weapon){
+            player.damage = player.damage + weapon.damage;
+            ApplyItemBonus(weapon.bonus);
+            
+        }
+
+        public void RemoveWeaponBonus(Weapon weapon){
+            player.damage = player.damage - weapon.damage;
+            RemoveItemBonus(weapon.bonus);
         }
     }
 }
