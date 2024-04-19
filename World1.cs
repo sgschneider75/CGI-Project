@@ -16,6 +16,59 @@ namespace cgiComp
             battleHandler = new BattleHandler();
         }
 
+        public void TravelWorld1(){
+            int userChoice;
+            // Flavor Text
+            // Monster Flavor Text
+            BattleRandomMonster(1);
+            if(player.isDead == false){
+                //Flavor text cave or forest
+                userChoice = Menu.SelectOption(MenuOptions.CaveForest());
+
+                if(userChoice == 1){
+                    //Monster Cave Flavor Text
+                    BattleRandomMonster(2);
+                } else {
+                    // Forest Monster Flavor Text
+                    BattleRandomMonster(3);
+                }
+
+                // if(player.isDead == false){
+                //     if(userChoice == 1){
+                //         // Tunnel Gnome text
+                //         BattleElite(1);
+                //     } else {
+                //         //Bridge Troll Text
+                //         BattleElite(2);
+                //     }
+                // }
+
+            }
+
+            // Shop
+
+            // if(player.isDead == false){
+            //     // Split flavor text
+            //     userChoice = Menu.SelectOption(MenuOptions.WallSewer());
+                
+            //     if(userChoice == 1){
+            //         EnterEliteSplitRoom(19, 3);
+            //     } else {
+            //         EnterEliteSplitRoom(20, 4);
+            //     }
+
+            //     if(player.isDead == false){
+            //         // Heal Room Flavor Text
+            //         player.health += 30;
+
+            //         // Boss Room Text
+
+            //     }
+
+            // }
+
+        }
+
         public void EnterRoom(int roomNumber){
             int roomChoice = Functions.GetRandomNum(1, 4);
 
@@ -38,9 +91,6 @@ namespace cgiComp
             }
         }
 
-        public void EnterEliteRoom(int eliteNumber){
-            BattleElite(eliteNumber);
-        }
 
         public void EnterBossRoom(int bossNumber){
             BattleBoss(bossNumber);

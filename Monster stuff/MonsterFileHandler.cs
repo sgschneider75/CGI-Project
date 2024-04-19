@@ -2,9 +2,13 @@ namespace cgiComp
 {
     public class MonsterFileHandler
     {
-        private Monster[] monsterList;
+        public Monster[] monsterList;
 
-        public void GetAllMonsters(){
+        public MonsterFileHandler(Monster[] monsterList){
+            this.monsterList = GetAllMonsters(monsterList);
+        }
+
+        public Monster[] GetAllMonsters(Monster[] monsterList){
             StreamReader inFile = new StreamReader("Monsters");
 
             string line = inFile.ReadLine();
@@ -18,6 +22,8 @@ namespace cgiComp
             }
 
             inFile.Close();
+
+            return monsterList;
         }
 
         public Monster GetMonster(int id){

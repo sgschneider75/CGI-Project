@@ -5,13 +5,10 @@ using cgiComp.Battle_Stuff;
 
 Player player = PlayerCreator.CreatePlayer();
 
-Monster monster = new Monster("goblin", 50, 10, "6/3/1");
+Monster[] emptyArray = new Monster[24];
 
-BattleHandler battleHandler= new BattleHandler();
+MonsterFileHandler fileHandler= new MonsterFileHandler(emptyArray);
 
-while(player.isDead == false && monster.isDead == false){
-    battleHandler.BattleRound(player, monster);
-}
 
 
 System.Console.WriteLine(player.health);
