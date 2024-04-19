@@ -64,7 +64,10 @@ namespace cgiComp.Battle_Stuff
 
         public void AttackAttack(Player player, Monster monster){
             int playerRoll = Functions.Roll20() + (player.speed / 2);
-            int monsterRoll = Functions.Roll20();
+            int monsterRoll = Functions.Roll20() + (monster.speed/2);
+
+            System.Console.WriteLine($"You rolled a {playerRoll}");
+            System.Console.WriteLine($"{monster.Name} rolled a {monsterRoll}");
 
             if(playerRoll > monsterRoll){
                 System.Console.WriteLine("You successfully attacked first");
@@ -74,6 +77,7 @@ namespace cgiComp.Battle_Stuff
                 player.DealDamage(monster, 1);
                 monster.DealDamage(player, 1);
             } else {
+                System.Console.WriteLine($"The {monster.Name} struck first");
                 monster.DealDamage(player, 1);
             }
 
@@ -81,11 +85,16 @@ namespace cgiComp.Battle_Stuff
 
         public void AttackDefend(Player player, Monster monster){
             int playerRoll = Functions.Roll20() + (player.speed / 2);
-            int monsterRoll = Functions.Roll20() + 10;
+            int monsterRoll = Functions.Roll20() + 10 + monster.defense;
+
+            System.Console.WriteLine($"You rolled a {playerRoll}");
+            System.Console.WriteLine($"{monster.Name} rolled a {monsterRoll}");
 
             if(playerRoll > monsterRoll){
+                System.Console.WriteLine($"You broke through the {monster.Name}'s defense");
                 player.DealDamage(monster, 2);
             } else {
+                System.Console.WriteLine($"The {monster.Name}'s defense stood");
                 player.isCharged = false;
             }
         }
@@ -96,13 +105,16 @@ namespace cgiComp.Battle_Stuff
 
         public void DefendAttack(Player player, Monster monster){
             int playerRoll = Functions.Roll20() + 10 + (player.defense / 2);
-            int monsterRoll = Functions.Roll20();
+            int monsterRoll = Functions.Roll20() + (monster.speed/2);
+
+            System.Console.WriteLine($"You rolled a {playerRoll}");
+            System.Console.WriteLine($"{monster.Name} rolled a {monsterRoll}");
 
             if(playerRoll < monsterRoll){
+                System.Console.WriteLine(monster.Name + "broke through your defense"); 
                 monster.DealDamage(player, 2);
             } else {
-                monster.isCharged = false;
-                // 
+                monster.isCharged = false; 
             }
         }
 

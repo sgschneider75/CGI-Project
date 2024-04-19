@@ -9,6 +9,10 @@ Monster[] emptyArray = new Monster[24];
 
 MonsterFileHandler fileHandler= new MonsterFileHandler(emptyArray);
 
+World1 world1 = new World1(fileHandler.monsterList, player);
+
+world1.TravelWorld1();
+
 
 
 System.Console.WriteLine(player.health);

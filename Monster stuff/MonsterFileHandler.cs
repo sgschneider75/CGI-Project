@@ -18,6 +18,7 @@ namespace cgiComp
                 string[] monsterInfo = line.Split('#');
 
                 monsterList[i] = new Monster(monsterInfo[0], int.Parse(monsterInfo[1]), int.Parse(monsterInfo[2]), monsterInfo[3], int.Parse(monsterInfo[4]), int.Parse(monsterInfo[5]));
+                line = inFile.ReadLine();
                 i++;
             }
 
