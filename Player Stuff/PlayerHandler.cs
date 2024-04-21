@@ -3,8 +3,11 @@ namespace cgiComp
     public class PlayerHandler
     {
         public Player player { get; set; }
+
+        public Inventory inventory{ get; set; }
         public PlayerHandler(){
             this.player = PlayerCreator.CreatePlayer();
+            this.inventory = new Inventory();
         }
 
         public void DealDamage(Monster monster, int resistance){
@@ -171,6 +174,36 @@ namespace cgiComp
         public void RemoveWeaponBonus(Weapon weapon){
             player.damage = player.damage - weapon.damage;
             RemoveItemBonus(weapon.bonus);
+        }
+
+        public void ChangeWeapon(Weapon weapon){
+            RemoveWeaponBonus(inventory.weapon);
+            inventory.weapon = weapon;
+            ApplyWeaponBonus(inventory.weapon);
+        }
+
+        public void ChangeRing(Ring ring){
+            RemoveItemBonus(inventory.ring.bonus);
+            inventory.ring = ring;
+            ApplyItemBonus(inventory.ring.bonus);
+        }
+
+        public void ChangeTrinket(Trinket trinket){
+            RemoveItemBonus(inventory.trinket.bonus);
+            inventory.trinket = trinket;
+            ApplyItemBonus(inventory.trinket.bonus);
+        }
+
+        public void ChangeAmulet(Amulet amulet){
+            RemoveItemBonus(inventory.amulet.bonus);
+            inventory.amulet = amulet;
+            ApplyItemBonus(inventory.amulet.bonus);
+        }
+
+        public void ChangeBlessing(Blessing blessing){
+            RemoveItemBonus(inventory.blessing.bonus);
+            inventory.blessing = blessing;
+            ApplyItemBonus(inventory.blessing.bonus);
         }
     }
 }

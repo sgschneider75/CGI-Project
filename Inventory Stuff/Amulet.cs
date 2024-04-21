@@ -2,9 +2,9 @@ namespace cgiComp
 {
     public class Amulet
     {
-        private string name { get; set; }
+        public string name { get; set; }
 
-        private string bonus { get; set; }
+        public string bonus { get; set; }
 
         public Amulet(string name, string bonus){
             this.name = name;

@@ -23,7 +23,8 @@ namespace cgiComp
 
 
         public void ShopMenu(){
-            //Shop Flavor Text
+            System.Console.WriteLine("Welcome to the Shop! Here you can purchase items to boost your abilities with coins");
+            System.Console.WriteLine("Please note that the purchase of an item will automatically replace any equipped items of that type");
             
             string userInput = "";
 
@@ -62,21 +63,122 @@ namespace cgiComp
 
         private void WeaponStore(int weaponNum){
             Weapon weapon = InventoryHandler.weaponList[weaponNum -1];
+
+            System.Console.WriteLine($"Coins: {inventory.coins}");
+
+            weapon.WriteStats();
+
+            System.Console.WriteLine($"Would you like to purchase this weapon for {weaponCost} coins?\n1. Buy Weapon\n2. Cancel");
+
+            string userInput = Console.ReadLine();
+
+            switch(userInput){
+                case "1":
+                    if(inventory.coins >= weaponCost){
+                        System.Console.WriteLine($"You have successfully purchased the {weapon.name}");
+                        inventory.coins -= weaponCost;
+                        playerHandler.ChangeWeapon(weapon);
+                    } else {
+                        System.Console.WriteLine("you cannot afford this weapon");
+                    }
+                    break;
+                case "2":
+                    System.Console.WriteLine("Canceling");
+                    break;
+                default:
+                    System.Console.WriteLine("Please enter a valid choice, 1 or 2. Canceling");
+                    break;
+            }
         }
 
         private void AmuletStore(int amuletNum){
             Amulet amulet = InventoryHandler.amuletList[amuletNum -1];
 
+            System.Console.WriteLine($"Coins: {inventory.coins}");
+
+            amulet.WriteStats();
+
+            System.Console.WriteLine($"Would you like to purchase this amulet for {amuletCost} coins?\n1. Buy Amulet\n2. Cancel");
+
+            string userInput = Console.ReadLine();
+
+            switch(userInput){
+                case "1":
+                    if(inventory.coins >= amuletCost){
+                        System.Console.WriteLine($"You have successfully purchased the {amulet.name}");
+                        inventory.coins -= amuletCost;
+                        playerHandler.ChangeAmulet(amulet);
+                    } else {
+                        System.Console.WriteLine("you cannot afford this amulet");
+                    }
+                    break;
+                case "2":
+                    System.Console.WriteLine("Canceling");
+                    break;
+                default:
+                    System.Console.WriteLine("Please enter a valid choice, 1 or 2. Canceling");
+                    break;
+            }
         }
 
         private void TrinketStore(int trinketNum){
             Trinket trinket = InventoryHandler.trinketList[trinketNum -1];
 
+            System.Console.WriteLine($"Coins: {inventory.coins}");
+
+            trinket.WriteStats();
+
+            System.Console.WriteLine($"Would you like to purchase this trinket for {trinketCost} coins?\n1. Buy trinket\n2. Cancel");
+
+            string userInput = Console.ReadLine();
+
+            switch(userInput){
+                case "1":
+                    if(inventory.coins >= trinketCost){
+                        System.Console.WriteLine($"You have successfully purchased the {trinket.name}");
+                        inventory.coins -= trinketCost;
+                        playerHandler.ChangeTrinket(trinket);
+                    } else {
+                        System.Console.WriteLine("you cannot afford this trinket");
+                    }
+                    break;
+                case "2":
+                    System.Console.WriteLine("Canceling");
+                    break;
+                default:
+                    System.Console.WriteLine("Please enter a valid choice, 1 or 2. Canceling");
+                    break;
+            }
         }
 
         private void RingStore(int ringNum){
             Ring ring = InventoryHandler.ringList[ringNum -1];
 
+            System.Console.WriteLine($"Coins: {inventory.coins}");
+
+            ring.WriteStats();
+
+            System.Console.WriteLine($"Would you like to purchase this ring for {ringCost} coins?\n1. Buy ring\n2. Cancel");
+
+            string userInput = Console.ReadLine();
+
+            switch(userInput){
+                case "1":
+                    if(inventory.coins >= ringCost){
+                        System.Console.WriteLine($"You have successfully purchased the {ring.name}");
+                        inventory.coins -= ringCost;
+                        playerHandler.ChangeRing(ring);
+                    } else {
+                        System.Console.WriteLine("you cannot afford this ring");
+                    }
+                    break;
+                case "2":
+                    System.Console.WriteLine("Canceling");
+                    break;
+                default:
+                    System.Console.WriteLine("Please enter a valid choice, 1 or 2. Canceling");
+                    break;
+            }
         }
 
 

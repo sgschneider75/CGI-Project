@@ -5,17 +5,17 @@ namespace cgiComp
     public class Inventory
     {
 
-        private int coins { get; set; }
+        public int coins { get; set; }
 
-        private Weapon weapon{ get; set; }
+        public Weapon weapon{ get; set; }
 
-        private Trinket trinket{ get; set; }
+        public Trinket trinket{ get; set; }
 
-        private Amulet amulet{ get; set; }
+        public Amulet amulet{ get; set; }
 
-        private Ring ring{ get; set; }
+        public Ring ring{ get; set; }
 
-        private Blessing blessing{ get; set; }
+        public Blessing blessing{ get; set; }
 
         private Potion[] potions { get; set; }
         public Inventory(){
@@ -47,5 +47,7 @@ namespace cgiComp
             System.Console.WriteLine($"You have gained {coinsGained} coins!");
             coins += coinsGained;
         }
+
+        
     }
 }
