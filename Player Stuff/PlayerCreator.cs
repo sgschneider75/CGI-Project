@@ -2,12 +2,12 @@ namespace cgiComp
 {
     public class PlayerCreator
     {
-        public static Player CreatePlayer(){
+        public static Player CreatePlayer(string level){
             System.Console.WriteLine("What would you like to name your player?");
 
             string username = Console.ReadLine();
             
-            StreamReader inFile = new StreamReader(@"\Users\Sgsch\documents\coding\cgiComp\Player Stuff\baseStats");
+            StreamReader inFile = new StreamReader(@"\Users\Sgsch\documents\coding\cgiComp\Player Stuff\" + level);
 
             string line = inFile.ReadLine();
             string[] stats = line.Split('#');

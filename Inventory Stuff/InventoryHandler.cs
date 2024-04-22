@@ -103,6 +103,8 @@ namespace cgiComp
                     System.Console.Write($"Health: " + int.Parse(bonusInfo[y]));
                 }
                 i += 2;
+                x += 2;
+                y += 2;
             }
 
             if(bonusInfo[0] == "r"){
@@ -125,7 +127,7 @@ namespace cgiComp
         }
 
         public static void WriteBonus(string bonus, string name, int type){
-            System.Console.WriteLine($"The {name} {type}  ");
+            System.Console.WriteLine($"The {name} Damage: {type}  ");
             string[] bonusInfo = bonus.Split('/');
             int x = 0;
             int y = 1;
@@ -143,6 +145,8 @@ namespace cgiComp
                     System.Console.Write($"Health: " + int.Parse(bonusInfo[y]));
                 }
                 i += 2;
+                x += 2;
+                y += 2;
             }
 
             if(bonusInfo[0] == "r"){

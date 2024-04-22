@@ -68,7 +68,7 @@ namespace cgiComp.Monster_stuff
 
             if(player.health <= 0){
                 player.isDead = true;
-                System.Console.WriteLine("You died");
+                Functions.DisplayMessage("Lose");
             }
         }
 
@@ -87,7 +87,7 @@ namespace cgiComp.Monster_stuff
 
              if(player.health <= 0){
                 player.isDead = true;
-                System.Console.WriteLine("You died");
+                Functions.DisplayMessage("Lose");
             }
         }
 

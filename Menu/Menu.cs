@@ -4,13 +4,13 @@ namespace cgiComp
 {
     public class Menu
     {
-        public static int SelectFightOption(string[] menuOptions, Player player, Monster monster){
+        public static int SelectFightOption(string[] menuOptions, Player player, Monster monster, string line){
             int selected = 1;
             bool answerSelected = false;
             
             while(answerSelected == false){
-                
-                System.Console.WriteLine("player's health:" + player.health + "/" + player.maxHealth);
+                System.Console.WriteLine(line);
+                System.Console.WriteLine($"{player.username}'s health:" + player.health + "/" + player.maxHealth);
                 System.Console.WriteLine(monster.Name + "'s health:" + monster.Health + "/" + monster.MaxHealth);
 
                 for(int i = 0; i < menuOptions.Length; i++){
@@ -41,12 +41,12 @@ namespace cgiComp
             return selected;
         }
 
-        public static int SelectEliteFightOption(string[] menuOptions, Player player, Elite elite){
+        public static int SelectEliteFightOption(string[] menuOptions, Player player, Elite elite, string line){
             int selected = 1;
             bool answerSelected = false;
             
             while(answerSelected == false){
-                
+                System.Console.WriteLine(line);
                 System.Console.WriteLine($"{player.username}'s health:" + player.health + "/" + player.maxHealth);
                 System.Console.WriteLine(elite.Name + "'s health:" + elite.Health + "/" + elite.MaxHealth);
 
@@ -78,12 +78,12 @@ namespace cgiComp
             return selected;
         }
 
-        public static int SelectBossFightOption(string[] menuOptions, Player player, Boss elite){
+        public static int SelectBossFightOption(string[] menuOptions, Player player, Boss elite, string line){
             int selected = 1;
             bool answerSelected = false;
             
             while(answerSelected == false){
-                
+                System.Console.WriteLine(line);
                 System.Console.WriteLine($"{player.username}'s health:" + player.health + "/" + player.maxHealth);
                 System.Console.WriteLine(elite.Name + "'s health:" + elite.Health + "/" + elite.MaxHealth);
 

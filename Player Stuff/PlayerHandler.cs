@@ -7,8 +7,8 @@ namespace cgiComp
         public Player player { get; set; }
 
         public Inventory inventory{ get; set; }
-        public PlayerHandler(){
-            this.player = PlayerCreator.CreatePlayer();
+        public PlayerHandler(string level){
+            this.player = PlayerCreator.CreatePlayer(level);
             this.inventory = new Inventory();
         }
 

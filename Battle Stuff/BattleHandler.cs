@@ -4,12 +4,12 @@ namespace cgiComp.Battle_Stuff
     {
 
 
-        public void BattleRound(PlayerHandler playerHandler, Monster monster){
+        public void BattleRound(PlayerHandler playerHandler, Monster monster, string line){
             Functions.ClearScreen();
             string[] menuOptions = new string[3];
             MenuOptions.FightOptions(menuOptions);
 
-            int playerAction = Menu.SelectFightOption(menuOptions, playerHandler.player, monster);
+            int playerAction = Menu.SelectFightOption(menuOptions, playerHandler.player, monster, line);
 
             int monsterAction = MonsterHandler.GetAction(monster);
 

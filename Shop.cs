@@ -30,8 +30,8 @@ namespace cgiComp
 
             int weaponNum = Functions.GetRandomNum(1,5);
             int amuletNum = Functions.GetRandomNum(1,5);
-            int trinketNum = Functions.GetRandomNum(1,5);
-            int ringNum = Functions.GetRandomNum(1,5);
+            int trinketNum = Functions.GetRandomNum(1,4);
+            int ringNum = Functions.GetRandomNum(1,4);
 
 
             while(userInput != "5"){

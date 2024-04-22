@@ -16,5 +16,18 @@ namespace cgiComp
             Console.ReadKey();
             Console.Clear();
         }
+
+        public static void DisplayMessage(string message){
+            StreamReader inFile = new StreamReader(message);
+
+            string line = inFile.ReadLine();
+
+            while (line != null){
+                System.Console.WriteLine(line);
+                line = inFile.ReadLine();
+            }
+
+            inFile.Close();
+        }
     }
 }

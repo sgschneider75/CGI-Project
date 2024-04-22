@@ -4,12 +4,12 @@ namespace cgiComp
 {
     public class BossBattleHandler
     {
-        public void BattleRound(PlayerHandler playerHandler, Boss monster){
+        public void BattleRound(PlayerHandler playerHandler, Boss monster, string line){
             Functions.ClearScreen();
             string[] menuOptions = new string[3];
             MenuOptions.FightOptions(menuOptions);
 
-            int playerAction = Menu.SelectBossFightOption(menuOptions, playerHandler.player, monster);
+            int playerAction = Menu.SelectBossFightOption(menuOptions, playerHandler.player, monster, line);
 
             int monsterAction = BossHandler.GetAction(monster);
 

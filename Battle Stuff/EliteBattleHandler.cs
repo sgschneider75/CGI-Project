@@ -2,12 +2,12 @@ namespace cgiComp
 {
     public class EliteBattleHandler
     {
-        public void BattleRound(PlayerHandler playerHandler, Elite monster){
+        public void BattleRound(PlayerHandler playerHandler, Elite monster, string line){
             Functions.ClearScreen();
             string[] menuOptions = new string[3];
             MenuOptions.FightOptions(menuOptions);
 
-            int playerAction = Menu.SelectEliteFightOption(menuOptions, playerHandler.player, monster);
+            int playerAction = Menu.SelectEliteFightOption(menuOptions, playerHandler.player, monster, line);
 
             int monsterAction = EliteHandler.GetAction(monster);
 

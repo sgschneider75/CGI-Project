@@ -59,7 +59,7 @@ namespace cgiComp
 
             if(player.health <= 0){
                 player.isDead = true;
-                System.Console.WriteLine("You died");
+                Functions.DisplayMessage("Lose");
             }
         }
 

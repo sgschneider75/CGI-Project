@@ -27,5 +27,23 @@ namespace cgiComp
 
             return options;
         }
+
+        public static string[] Canyons(){
+            string[] options = new string[2];
+
+            options[0] = "Climb down the canyon";
+            options[1] = "Walk across the Plateau";
+
+            return options;
+        }
+
+        public static string[] Stairs(){
+            string[] options = new string[2];
+
+            options[0] = "Go through the front door";
+            options[1] = "Climb the pyramid steps";
+
+            return options;
+        }
     }
 }
