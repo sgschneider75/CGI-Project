@@ -41,6 +41,7 @@ namespace cgiComp
                 switch(userInput){
                     case "1":
                         WeaponStore(weaponNum);
+                        System.Console.WriteLine("got here");
                         break;
                     case "2":
                         AmuletStore(amuletNum);
@@ -70,14 +71,15 @@ namespace cgiComp
 
             System.Console.WriteLine($"Would you like to purchase this weapon for {weaponCost} coins?\n1. Buy Weapon\n2. Cancel");
 
-            string userInput = Console.ReadLine();
+            string uInput = Console.ReadLine();
 
-            switch(userInput){
+            switch(uInput){
                 case "1":
                     if(inventory.coins >= weaponCost){
                         System.Console.WriteLine($"You have successfully purchased the {weapon.name}");
                         inventory.coins -= weaponCost;
                         playerHandler.ChangeWeapon(weapon);
+                        System.Console.WriteLine("got here");
                     } else {
                         System.Console.WriteLine("you cannot afford this weapon");
                     }
@@ -100,9 +102,9 @@ namespace cgiComp
 
             System.Console.WriteLine($"Would you like to purchase this amulet for {amuletCost} coins?\n1. Buy Amulet\n2. Cancel");
 
-            string userInput = Console.ReadLine();
+            string uInput = Console.ReadLine();
 
-            switch(userInput){
+            switch(uInput){
                 case "1":
                     if(inventory.coins >= amuletCost){
                         System.Console.WriteLine($"You have successfully purchased the {amulet.name}");
@@ -130,9 +132,9 @@ namespace cgiComp
 
             System.Console.WriteLine($"Would you like to purchase this trinket for {trinketCost} coins?\n1. Buy trinket\n2. Cancel");
 
-            string userInput = Console.ReadLine();
+            string uInput = Console.ReadLine();
 
-            switch(userInput){
+            switch(uInput){
                 case "1":
                     if(inventory.coins >= trinketCost){
                         System.Console.WriteLine($"You have successfully purchased the {trinket.name}");
@@ -160,9 +162,9 @@ namespace cgiComp
 
             System.Console.WriteLine($"Would you like to purchase this ring for {ringCost} coins?\n1. Buy ring\n2. Cancel");
 
-            string userInput = Console.ReadLine();
+            string uInput = Console.ReadLine();
 
-            switch(userInput){
+            switch(uInput){
                 case "1":
                     if(inventory.coins >= ringCost){
                         System.Console.WriteLine($"You have successfully purchased the {ring.name}");

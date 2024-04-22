@@ -1,4 +1,5 @@
 using cgiComp.Battle_Stuff;
+using cgiComp.Monster_stuff;
 
 namespace cgiComp
 {
@@ -8,18 +9,27 @@ namespace cgiComp
 
         private Elite[] eliteList;
 
+        private Boss[] bossList;
+
         private PlayerHandler playerHandler;
 
         private BattleHandler battleHandler;
 
         private EliteBattleHandler eliteBattleHandler;
+
+        private BossBattleHandler bossBattleHandler;
+
+        private Shop shop;
         
-        public Worlds(Monster[] monsterList, Elite[] eliteList, PlayerHandler playerHandler){
+        public Worlds(Monster[] monsterList, Elite[] eliteList, Boss[] bossList, PlayerHandler playerHandler){
             this.monsterList = monsterList;
             this.eliteList = eliteList;
+            this.bossList = bossList;
             this.playerHandler = playerHandler;
             battleHandler = new BattleHandler();
             eliteBattleHandler = new EliteBattleHandler();
+            bossBattleHandler = new BossBattleHandler();
+            shop = new Shop(playerHandler, playerHandler.inventory);
         }
 
         public void TravelWorld1(){
@@ -27,6 +37,7 @@ namespace cgiComp
             // Flavor Text
             // Monster Flavor Text
             BattleRandomMonster(1);
+            playerHandler.inventory.AddCoins(playerHandler.inventory.CalcCoins(1, 10));
             if(playerHandler.player.isDead == false){
                 //Flavor text cave or forest
                 userChoice = Menu.SelectOption(MenuOptions.CaveForest());
@@ -34,24 +45,28 @@ namespace cgiComp
                 if(userChoice == 1){
                     //Monster Cave Flavor Text
                     BattleRandomMonster(2);
+                    playerHandler.inventory.AddCoins(playerHandler.inventory.CalcCoins(5, 15));
                 } else {
                     // Forest Monster Flavor Text
                     BattleRandomMonster(3);
+                    playerHandler.inventory.AddCoins(playerHandler.inventory.CalcCoins(5, 15));
                 }
 
                 if(playerHandler.player.isDead == false){
                     if(userChoice == 1){
                         // Tunnel Gnome text
                         BattleElite(1);
+                        playerHandler.inventory.AddCoins(playerHandler.inventory.CalcCoins(10, 20));
                     } else {
                         //Bridge Troll Text
                         BattleElite(2);
+                        playerHandler.inventory.AddCoins(playerHandler.inventory.CalcCoins(5, 20));
                     }
                 }
 
             }
 
-            // Shop
+            shop.ShopMenu();
 
             if(playerHandler.player.isDead == false){
                 // Split flavor text
@@ -66,8 +81,11 @@ namespace cgiComp
                 if(playerHandler.player.isDead == false){
                     // Heal Room Flavor Text
                     playerHandler.player.health += 30;
+                    if(playerHandler.player.health > playerHandler.player.maxHealth){
+                        playerHandler.player.health = playerHandler.player.maxHealth;
+                    }
 
-                    // Boss Room Text
+                    BattleBoss(1);
 
                 }
 
@@ -97,11 +115,6 @@ namespace cgiComp
             } else {
                 BattleMonster(enemyNumber);
             }
-        }
-
-
-        public void EnterBossRoom(int bossNumber){
-            BattleBoss(bossNumber);
         }
 
 
@@ -152,7 +165,36 @@ namespace cgiComp
         }
 
         public void BattleBoss(int bossNumber){
-            
+            Boss boss = bossList[bossNumber - 1];
+            int i = 1;
+            while(playerHandler.player.isDead == false && boss.isDead == false){
+                if(boss.Health < boss.MaxHealth/2){
+                    if(boss.isEnraged == false){
+                        boss.isEnraged = true;
+                        System.Console.WriteLine($"{boss.Name} explodes with red light as he becomes enraged");
+                    }
+                    
+                }
+
+                if(boss.isEnraged == true){
+                    if(i % 3 == 0){
+                        System.Console.WriteLine($"{boss.Name} flickers with red light as his rage festers");
+                    boss.Health += boss.healAmount;
+                    boss.isCharged = true;
+                    if(boss.Health > boss.MaxHealth){
+                        boss.Health = boss.MaxHealth;
+                    }
+                    }
+                }
+                
+                bossBattleHandler.BattleRound(playerHandler, boss);
+                if(i % 5 == 0){
+                    System.Console.WriteLine($"{boss.Name} lashes out with a elemental attack");
+                    boss.DealElementalDamage(playerHandler.player);
+                }
+
+                i++;
+            }
         }
     }
 }

@@ -15,8 +15,7 @@ namespace cgiComp
         }
 
         public void WriteStats(){
-            System.Console.WriteLine($"The {name}  Damage: {damage}  ");
-            InventoryHandler.WriteBonus(bonus);
+            InventoryHandler.WriteBonus(bonus, name, damage);
         }
     }
 }

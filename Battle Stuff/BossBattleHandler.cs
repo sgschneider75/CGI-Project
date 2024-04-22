@@ -1,15 +1,17 @@
+using cgiComp.Monster_stuff;
+
 namespace cgiComp
 {
-    public class EliteBattleHandler
+    public class BossBattleHandler
     {
-        public void BattleRound(PlayerHandler playerHandler, Elite monster){
+        public void BattleRound(PlayerHandler playerHandler, Boss monster){
             Functions.ClearScreen();
             string[] menuOptions = new string[3];
             MenuOptions.FightOptions(menuOptions);
 
-            int playerAction = Menu.SelectEliteFightOption(menuOptions, playerHandler.player, monster);
+            int playerAction = Menu.SelectBossFightOption(menuOptions, playerHandler.player, monster);
 
-            int monsterAction = EliteHandler.GetAction(monster);
+            int monsterAction = BossHandler.GetAction(monster);
 
             if(playerAction == 1){
                 System.Console.WriteLine("You chose to attack");
@@ -60,7 +62,7 @@ namespace cgiComp
             }
         }
 
-        public void AttackAttack(PlayerHandler playerHandler, Elite monster){
+        public void AttackAttack(PlayerHandler playerHandler, Boss monster){
             int playerRoll = Functions.Roll20() + (playerHandler.player.speed);
             int monsterRoll = Functions.Roll20() + (monster.speed);
 
@@ -81,7 +83,7 @@ namespace cgiComp
 
         }
 
-        public void AttackDefend(PlayerHandler playerHandler, Elite monster){
+        public void AttackDefend(PlayerHandler playerHandler, Boss monster){
             int playerRoll = Functions.Roll20() + (playerHandler.player.speed);
             int monsterRoll = Functions.Roll20() + 5 + monster.defense;
 
@@ -97,12 +99,12 @@ namespace cgiComp
             }
         }
 
-        public void AttackCharge(PlayerHandler playerHandler, Elite monster){
+        public void AttackCharge(PlayerHandler playerHandler, Boss monster){
             playerHandler.DealDamage(monster, 1);
         }
 
-        public void DefendAttack(Player player, Elite monster){
-            int playerRoll = Functions.Roll20() + 5 + (player.defense);
+        public void DefendAttack(Player player, Boss monster){
+            int playerRoll = Functions.Roll20() + 10 + (player.defense);
             int monsterRoll = Functions.Roll20() + (monster.speed);
 
             System.Console.WriteLine($"You rolled a {playerRoll}");
@@ -116,15 +118,15 @@ namespace cgiComp
             }
         }
 
-        public void DefendDefend(Player player, Elite monster){
+        public void DefendDefend(Player player, Boss monster){
             
         }
 
-        public void DefendCharge(Player player, Elite monster){
+        public void DefendCharge(Player player, Boss monster){
             monster.ChargeUp();
         }
 
-        public void ChargeAttack(Player player, Elite monster){
+        public void ChargeAttack(Player player, Boss monster){
             monster.DealDamage(player, 1);
         }
 
@@ -132,7 +134,7 @@ namespace cgiComp
             playerHandler.ChargeUp();
         }
 
-        public void ChargeCharge(PlayerHandler playerHandler, Elite monster){
+        public void ChargeCharge(PlayerHandler playerHandler, Boss monster){
             playerHandler.ChargeUp();
             monster.ChargeUp();
         }

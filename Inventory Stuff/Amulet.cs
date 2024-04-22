@@ -12,8 +12,7 @@ namespace cgiComp
         }
 
         public void WriteStats(){
-            System.Console.WriteLine($"The {name} Amulet  ");
-            InventoryHandler.WriteBonus(bonus);
+            InventoryHandler.WriteBonus(bonus, name, "amulet");
         }
     }
 }

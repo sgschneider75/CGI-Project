@@ -48,6 +48,6 @@ namespace cgiComp
             coins += coinsGained;
         }
 
-        
+
     }
 }

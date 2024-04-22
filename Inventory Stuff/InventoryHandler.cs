@@ -84,7 +84,48 @@ namespace cgiComp
             return potionList;
         }
 
-        public static void WriteBonus(string bonus){
+        public static void WriteBonus(string bonus, string name, string type){
+            System.Console.WriteLine($"The {name} {type}  ");
+            string[] bonusInfo = bonus.Split('/');
+            int x = 0;
+            int y = 1;
+            int i = 0;
+            while(i < bonusInfo.Length && bonusInfo[x] != "r"){
+                if(bonusInfo[x] == "p"){
+                    System.Console.Write($"Power: " + int.Parse(bonusInfo[y]) + "  ");
+                } else if (bonusInfo[x] == "s"){
+                    System.Console.Write($"Speed: " + int.Parse(bonusInfo[y]) + "  ");
+                } else if (bonusInfo[x] == "d"){
+                    System.Console.Write($"Defense: " + int.Parse(bonusInfo[y]) + "  ");
+                } else if (bonusInfo[x] == "a"){
+                    System.Console.Write("Health:" + int.Parse(bonusInfo[y])*5 + "  " + "All Stats: " + int.Parse(bonusInfo[y]));
+                } else if (bonusInfo[x] == "mh"){
+                    System.Console.Write($"Health: " + int.Parse(bonusInfo[y]));
+                }
+                i += 2;
+            }
+
+            if(bonusInfo[0] == "r"){
+                if(bonusInfo[1] == "c"){
+                    Console.Write("Resistance: Cold");
+                } else if (bonusInfo[1] == "f"){
+                    Console.Write("Resistance: Fire");
+                } else if (bonusInfo[1] == "e"){
+                    Console.Write("Resistance: Earth");
+                } else if(bonusInfo[1] == "w"){
+                    Console.Write("Resistance: Wind");
+                } else {
+                    Console.Write("Resistance: Dark");
+                }
+            }
+
+            System.Console.WriteLine();
+
+            
+        }
+
+        public static void WriteBonus(string bonus, string name, int type){
+            System.Console.WriteLine($"The {name} {type}  ");
             string[] bonusInfo = bonus.Split('/');
             int x = 0;
             int y = 1;

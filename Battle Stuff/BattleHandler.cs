@@ -63,8 +63,8 @@ namespace cgiComp.Battle_Stuff
         }
 
         public void AttackAttack(PlayerHandler playerHandler, Monster monster){
-            int playerRoll = Functions.Roll20() + (playerHandler.player.speed / 2);
-            int monsterRoll = Functions.Roll20() + (monster.speed/2);
+            int playerRoll = Functions.Roll20() + (playerHandler.player.speed);
+            int monsterRoll = Functions.Roll20() + (monster.speed);
 
             System.Console.WriteLine($"You rolled a {playerRoll}");
             System.Console.WriteLine($"{monster.Name} rolled a {monsterRoll}");
@@ -84,8 +84,8 @@ namespace cgiComp.Battle_Stuff
         }
 
         public void AttackDefend(PlayerHandler playerHandler, Monster monster){
-            int playerRoll = Functions.Roll20() + (playerHandler.player.speed / 2);
-            int monsterRoll = Functions.Roll20() + 10 + monster.defense;
+            int playerRoll = Functions.Roll20() + (playerHandler.player.speed);
+            int monsterRoll = Functions.Roll20() + 5 + monster.defense;
 
             System.Console.WriteLine($"You rolled a {playerRoll}");
             System.Console.WriteLine($"{monster.Name} rolled a {monsterRoll}");
@@ -104,8 +104,8 @@ namespace cgiComp.Battle_Stuff
         }
 
         public void DefendAttack(Player player, Monster monster){
-            int playerRoll = Functions.Roll20() + 10 + (player.defense / 2);
-            int monsterRoll = Functions.Roll20() + (monster.speed/2);
+            int playerRoll = Functions.Roll20() + 5 + (player.defense);
+            int monsterRoll = Functions.Roll20() + (monster.speed);
 
             System.Console.WriteLine($"You rolled a {playerRoll}");
             System.Console.WriteLine($"{monster.Name} rolled a {monsterRoll}");

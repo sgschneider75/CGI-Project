@@ -1,3 +1,5 @@
+using cgiComp.Monster_stuff;
+
 namespace cgiComp
 {
     public class PlayerHandler
@@ -94,6 +96,48 @@ namespace cgiComp
             }
         }
 
+        public void DealDamage(Boss monster, int resistance){
+            double damageMultiplier;
+
+            int playerRoll = Functions.Roll20();
+
+            System.Console.WriteLine($"You rolled a {playerRoll}");
+
+            if(playerRoll == 1){
+                damageMultiplier = 0;
+            } else if (playerRoll <= 6){
+                damageMultiplier = 0.5;
+            } else if (playerRoll <= 14){
+                damageMultiplier = 1;
+            } else if (playerRoll <= 19){
+                damageMultiplier = 1.5;
+            } else {
+                damageMultiplier = 2;
+            }
+
+            double damageCalc = player.damage*damageMultiplier;
+            int damageInt = Convert.ToInt32(damageCalc);
+            int totalDamage = damageInt + player.power;
+
+            if(player.isCharged == true){
+                totalDamage = totalDamage*2;
+                player.isCharged = false;
+            }
+
+            if(playerRoll == 0){
+                totalDamage = 0;
+            }
+           
+            monster.Health -= (totalDamage / resistance);
+
+            System.Console.WriteLine($"You struck and dealt {totalDamage / resistance} damage");
+
+            if(monster.Health <= 0){
+                monster.isDead = true;
+                System.Console.WriteLine("You killed the monster");
+            }
+        }
+
         public void ChargeUp(){
             player.isCharged = true;
             System.Console.WriteLine("You are charged up!");
@@ -122,6 +166,9 @@ namespace cgiComp
                     player.health += int.Parse(bonusInfo[y]);
                     player.maxHealth += int.Parse(bonusInfo[y]);
                 }
+                i += 2;
+                x += 2;
+                y += 2;
             }
 
             if(bonusInfo[0] == "r"){
@@ -158,6 +205,7 @@ namespace cgiComp
                 } else if (bonusInfo[x] == "mh"){
                     player.maxHealth -= int.Parse(bonusInfo[y]);
                 }
+                i += 2;
             }
 
             if(bonusInfo[0] == "r"){
