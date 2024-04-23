@@ -62,5 +62,3 @@ if(playerHandler.player.isDead != true){
     System.Console.WriteLine("You retire a hero, with your best friend the shopkeeper");
     Functions.DisplayMessage("Win");
 }
-
-

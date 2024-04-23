@@ -17,7 +17,6 @@ namespace cgiComp
 
             int playerRoll = Functions.Roll20();
 
-            System.Console.WriteLine($"You rolled a {playerRoll}");
 
             if(playerRoll == 1){
                 damageMultiplier = 0;
@@ -59,8 +58,6 @@ namespace cgiComp
 
             int playerRoll = Functions.Roll20();
 
-            System.Console.WriteLine($"You rolled a {playerRoll}");
-
             if(playerRoll == 1){
                 damageMultiplier = 0;
             } else if (playerRoll <= 6){
@@ -101,7 +98,6 @@ namespace cgiComp
 
             int playerRoll = Functions.Roll20();
 
-            System.Console.WriteLine($"You rolled a {playerRoll}");
 
             if(playerRoll == 1){
                 damageMultiplier = 0;

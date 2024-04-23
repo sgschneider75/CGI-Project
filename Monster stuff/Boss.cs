@@ -45,8 +45,6 @@ namespace cgiComp.Monster_stuff
             int monsterRoll = Functions.Roll20();
             int damageMultiplier;
 
-            System.Console.WriteLine($"{Name} rolled a {monsterRoll}");
-
             if(monsterRoll <= 2){
                 damageMultiplier = 0;
             } else if (monsterRoll <= 18){

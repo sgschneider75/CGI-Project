@@ -9,7 +9,7 @@ namespace cgiComp
         }
 
         public Elite[] GetAllElites(Elite[] eliteList){
-            StreamReader inFile = new StreamReader("Elites");
+            StreamReader inFile = new StreamReader("C:\\Users\\Sgsch\\documents\\coding\\cgicomp\\Monster Stuff\\Elites");
 
             string line = inFile.ReadLine();
             int i = 0;

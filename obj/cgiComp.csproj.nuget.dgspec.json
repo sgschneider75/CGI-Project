@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Sgsch\\documents\\coding\\cgicomp\\cgiComp.csproj": {}
+    "C:\\Users\\Sgsch\\Documents\\Coding\\cgiComp\\cgiComp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Sgsch\\documents\\coding\\cgicomp\\cgiComp.csproj": {
+    "C:\\Users\\Sgsch\\Documents\\Coding\\cgiComp\\cgiComp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Sgsch\\documents\\coding\\cgicomp\\cgiComp.csproj",
+        "projectUniqueName": "C:\\Users\\Sgsch\\Documents\\Coding\\cgiComp\\cgiComp.csproj",
         "projectName": "cgiComp",
-        "projectPath": "C:\\Users\\Sgsch\\documents\\coding\\cgicomp\\cgiComp.csproj",
+        "projectPath": "C:\\Users\\Sgsch\\Documents\\Coding\\cgiComp\\cgiComp.csproj",
         "packagesPath": "C:\\Users\\Sgsch\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Sgsch\\documents\\coding\\cgicomp\\obj\\",
+        "outputPath": "C:\\Users\\Sgsch\\Documents\\Coding\\cgiComp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Sgsch\\AppData\\Roaming\\NuGet\\NuGet.Config"

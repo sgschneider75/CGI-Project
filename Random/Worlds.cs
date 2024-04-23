@@ -34,10 +34,11 @@ namespace cgiComp
 
         public void TravelWorld1(){
             int userChoice;
+            Functions.ClearScreen();
+            Functions.DisplayMessage("Clouds");
             System.Console.WriteLine("As you begin your adventure across the world, you stumble upon a kingdom in ruins");
             System.Console.WriteLine("Intruiged, you venture towards the capital");
             System.Console.WriteLine("You enter the plains, but hear a rustling behind you");
-            Functions.ClearScreen();
             BattleRandomMonster(1);
             playerHandler.inventory.AddCoins(playerHandler.inventory.CalcCoins(1, 10));
             if(playerHandler.player.isDead == false){
@@ -52,6 +53,7 @@ namespace cgiComp
                     playerHandler.inventory.AddCoins(playerHandler.inventory.CalcCoins(5, 15));
                     Functions.ClearScreen();
                 } else {
+                    Functions.DisplayMessage("Forest");
                     System.Console.WriteLine("As you walk through the dark woods, you hear a rustling in the bushes");
                     Functions.ClearScreen();
                     BattleRandomMonster(3);
@@ -61,12 +63,14 @@ namespace cgiComp
 
                 if(playerHandler.player.isDead == false){
                     if(userChoice == 1){
+                        Functions.DisplayMessage("Torch");
                         System.Console.WriteLine("As you near the exit to the cave, you hear the omninous rumbling of treads");
                         Functions.ClearScreen();
                         BattleElite(1);
                         playerHandler.inventory.AddCoins(playerHandler.inventory.CalcCoins(10, 20));
                         Functions.ClearScreen();
                     } else {
+                        Functions.DisplayMessage("Bridge");
                         System.Console.WriteLine("You exit the woods to a great bridge and begin to cross, but a large figure shambling in front of you");
                         Functions.ClearScreen();
                         BattleElite(2);
@@ -87,10 +91,12 @@ namespace cgiComp
             
 
             if(playerHandler.player.isDead == false){
+                Functions.DisplayMessage("Castle");
                 System.Console.WriteLine("Finally, you approach the castle, but you need to find a way in");
                 userChoice = Menu.SelectOption(MenuOptions.WallSewer());
                 
                 if(userChoice == 1){
+                    Functions.DisplayMessage("Wall");
                     System.Console.WriteLine("As you climb over the top of the wall, you hear a firm voice commanding you to halt");
                     Functions.ClearScreen();
                     EnterEliteSplitRoom(19, 3);
@@ -130,6 +136,7 @@ namespace cgiComp
 
         public void TravelWorld2(){
             int userChoice;
+            Functions.DisplayMessage("Sun");
             System.Console.WriteLine("As you exit the plains kingdom, honored as a hero, you enter a nearby desert");
             System.Console.WriteLine("Unfortunately, deserts are not known for their safety...");
             Functions.ClearScreen();
@@ -141,7 +148,7 @@ namespace cgiComp
                 userChoice = Menu.SelectOption(MenuOptions.Canyons());
 
                 if(userChoice == 1){
-                    System.Console.WriteLine("You lower yourself into the canyon, when you are struck from behind");
+                    System.Console.WriteLine("You climb down a ladder into the canyon, when you are struck from behind");
                     Functions.ClearScreen();
                     BattleRandomMonster(5);
                     playerHandler.inventory.AddCoins(playerHandler.inventory.CalcCoins(15, 20));
@@ -175,6 +182,7 @@ namespace cgiComp
             }
 
             if(playerHandler.player.isDead == false){
+                Functions.DisplayMessage("Pyramid");
                 System.Console.WriteLine("You discover a large pyramid, and decide to head to it, but not before visiting the desert trader");
                 System.Console.WriteLine("As you approach, you realize the trader is somehow the same old man as before");
                 System.Console.WriteLine("'Welcome Back'");

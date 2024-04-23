@@ -9,7 +9,7 @@ namespace cgiComp
         }
 
         public Monster[] GetAllMonsters(Monster[] monsterList){
-            StreamReader inFile = new StreamReader("Monsters");
+            StreamReader inFile = new StreamReader("C:\\Users\\Sgsch\\documents\\coding\\cgicomp\\Monster Stuff\\Monsters");
 
             string line = inFile.ReadLine();
             int i = 0;

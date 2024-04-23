@@ -69,6 +69,7 @@ namespace cgiComp.Battle_Stuff
             System.Console.WriteLine($"You rolled a {playerRoll}");
             System.Console.WriteLine($"{monster.Name} rolled a {monsterRoll}");
 
+            
             if(playerRoll > monsterRoll){
                 System.Console.WriteLine("You successfully attacked first");
                 playerHandler.DealDamage(monster, 1);
@@ -90,6 +91,8 @@ namespace cgiComp.Battle_Stuff
             System.Console.WriteLine($"You rolled a {playerRoll}");
             System.Console.WriteLine($"{monster.Name} rolled a {monsterRoll}");
 
+
+            
             if(playerRoll > monsterRoll){
                 System.Console.WriteLine($"You broke through the {monster.Name}'s defense");
                 playerHandler.DealDamage(monster, 2);
@@ -110,10 +113,13 @@ namespace cgiComp.Battle_Stuff
             System.Console.WriteLine($"You rolled a {playerRoll}");
             System.Console.WriteLine($"{monster.Name} rolled a {monsterRoll}");
 
+
+            
             if(playerRoll < monsterRoll){
                 System.Console.WriteLine(monster.Name + "broke through your defense"); 
                 monster.DealDamage(player, 2);
             } else {
+                System.Console.WriteLine("Your defense held!");
                 monster.isCharged = false; 
             }
         }

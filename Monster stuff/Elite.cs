@@ -59,7 +59,6 @@ namespace cgiComp
 
             player.health -= (totalDamage / resistance);
 
-            System.Console.WriteLine($"The monster lashed out and dealt {totalDamage / resistance} damage");
 
             if(player.health <= 0){
                 player.isDead = true;

@@ -10,15 +10,15 @@ namespace cgiComp
             
             while(answerSelected == false){
                 System.Console.WriteLine(line);
-                System.Console.WriteLine($"{player.username}'s health:" + player.health + "/" + player.maxHealth);
-                System.Console.WriteLine(monster.Name + "'s health:" + monster.Health + "/" + monster.MaxHealth);
+                Functions.DisplayHealth(monster.Health, monster.MaxHealth, monster.Name);
+                Functions.DisplayHealth(player.health, player.maxHealth, player.username);
 
                 for(int i = 0; i < menuOptions.Length; i++){
                     if(i+1 == selected){
                         Console.BackgroundColor = ConsoleColor.DarkRed;
                     }
                     System.Console.WriteLine(menuOptions[i]);
-                    Console.ResetColor();
+                    Console.BackgroundColor = ConsoleColor.Black;
                 }
                 var key = Console.ReadKey(true).Key;
                 if(key == ConsoleKey.DownArrow){
@@ -47,15 +47,15 @@ namespace cgiComp
             
             while(answerSelected == false){
                 System.Console.WriteLine(line);
-                System.Console.WriteLine($"{player.username}'s health:" + player.health + "/" + player.maxHealth);
-                System.Console.WriteLine(elite.Name + "'s health:" + elite.Health + "/" + elite.MaxHealth);
+                Functions.DisplayHealth(elite.Health, elite.MaxHealth, elite.Name);
+                Functions.DisplayHealth(player.health, player.maxHealth, player.username);
 
                 for(int i = 0; i < menuOptions.Length; i++){
                     if(i+1 == selected){
                         Console.BackgroundColor = ConsoleColor.DarkRed;
                     }
                     System.Console.WriteLine(menuOptions[i]);
-                    Console.ResetColor();
+                    Console.BackgroundColor = ConsoleColor.Black;
                 }
                 var key = Console.ReadKey(true).Key;
                 if(key == ConsoleKey.DownArrow){
@@ -84,15 +84,15 @@ namespace cgiComp
             
             while(answerSelected == false){
                 System.Console.WriteLine(line);
-                System.Console.WriteLine($"{player.username}'s health:" + player.health + "/" + player.maxHealth);
-                System.Console.WriteLine(elite.Name + "'s health:" + elite.Health + "/" + elite.MaxHealth);
+                Functions.DisplayHealth(elite.Health, elite.MaxHealth, elite.Name);
+                Functions.DisplayHealth(player.health, player.maxHealth, player.username);
 
                 for(int i = 0; i < menuOptions.Length; i++){
                     if(i+1 == selected){
                         Console.BackgroundColor = ConsoleColor.DarkRed;
                     }
                     System.Console.WriteLine(menuOptions[i]);
-                    Console.ResetColor();
+                    Console.BackgroundColor = ConsoleColor.Black;
                 }
                 var key = Console.ReadKey(true).Key;
                 if(key == ConsoleKey.DownArrow){

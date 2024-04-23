@@ -9,7 +9,7 @@ namespace cgiComp.Monster_stuff
         }
 
         public Boss[] GetAllBosses(Boss[] bossList){
-            StreamReader inFile = new StreamReader("Bosses");
+            StreamReader inFile = new StreamReader("C:\\Users\\Sgsch\\documents\\coding\\cgicomp\\Monster Stuff\\Bosses");
 
             string line = inFile.ReadLine();
             int i = 0;
