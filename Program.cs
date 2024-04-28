@@ -21,7 +21,7 @@ Functions.DisplayMessage("Welcome");
 
 
 System.Console.WriteLine("What difficulty level would you like? (1/2/3)");
-System.Console.WriteLine("(1 is a tutorial)");
+System.Console.WriteLine("1. Tutorial\n2. Normal\n3. Expert");
 
 string userInput = Console.ReadLine();
 string difficulty = "BaseStats1";

@@ -33,11 +33,14 @@ namespace cgiComp
             int trinketNum = Functions.GetRandomNum(1,4);
             int ringNum = Functions.GetRandomNum(1,4);
 
+            
+
 
             while(userInput != "5"){
-                System.Console.WriteLine("1. Weapon\n2. Amulet\n3. Trinket\n4. Ring\n5. Exit");
+                System.Console.WriteLine("1. Weapon- 100 coins\n2. Amulet- 20 coins\n3. Trinket- 50 coins\n4. Ring- 20 coins\n5. Exit");
                 userInput = Console.ReadLine();
-
+                System.Console.WriteLine($"Coins: {inventory.coins}");
+                
                 switch(userInput){
                     case "1":
                         WeaponStore(weaponNum);
